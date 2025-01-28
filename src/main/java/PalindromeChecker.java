@@ -37,10 +37,22 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  if(reverse(word).equals(word)){
+  
+  if(reverse(yuckRemover(word).toLowerCase()).equals(yuckRemove(word).toLowerCase())){
     return true;
   }
   return false;
+}
+public String yuckRemover(String input){
+  String output = new String();
+  for(int i = 0; i < input.length();i++){
+    if(input.substring(i,i+1).equals(" ")==false && Character.isLetter(input.charAt(i))){
+      output+=input.substring(i,i+1);
+    }
+  }
+  return output;
+  
+
 }
 public String reverse(String str)
 {
